@@ -5,10 +5,10 @@
   <script>
     (() => {
       const requested = new URLSearchParams(location.search).get('motion');
-      let mode = 'system';
+      let mode = 'full';
       try {
         if (['full','reduce','system'].includes(requested)) sessionStorage.setItem('patch-motion-mode', requested);
-        mode = sessionStorage.getItem('patch-motion-mode') || 'system';
+        mode = sessionStorage.getItem('patch-motion-mode') || 'full';
       } catch { if (requested === 'full' || requested === 'reduce') mode = requested; }
       window.patchMotionMode = mode;
       window.patchShouldReduceMotion = () => mode === 'reduce' || (mode !== 'full' && matchMedia('(prefers-reduced-motion: reduce)').matches);

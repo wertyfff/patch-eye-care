@@ -1,0 +1,5 @@
+.playwright-mcp/
+output/
+node_modules/
+*.log
+.impeccable/review/

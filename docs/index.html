@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en" class="preloading">
+<head>
+  <base href="/patch-eye-care/">
+  <script>
+    (() => {
+      const requested = new URLSearchParams(location.search).get('motion');
+      let mode = 'system';
+      try {
+        if (['full','reduce','system'].includes(requested)) sessionStorage.setItem('patch-motion-mode', requested);
+        mode = sessionStorage.getItem('patch-motion-mode') || 'system';
+      } catch { if (requested === 'full' || requested === 'reduce') mode = requested; }
+      window.patchMotionMode = mode;
+      window.patchShouldReduceMotion = () => mode === 'reduce' || (mode !== 'full' && matchMedia('(prefers-reduced-motion: reduce)').matches);
+      document.documentElement.classList.toggle('motion-full', mode === 'full');
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f5f5">
+  <meta name="description" content="PATCH — a little time for yourself. Explore hydrogel eye patches and find your pair.">
+  <title>PATCH — Start with yourself</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/oswald-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/catalog/campaign-white-wide.png" as="image">
+  <style>.preloading{overflow:hidden}.loader{position:fixed;inset:0;z-index:1000;background:#101010;color:#f5f5f5}.loader-title{position:absolute;top:46%;left:50%;transform:translate(-50%,-50%);font:400 clamp(32px,7vw,110px)/1 sans-serif;white-space:nowrap}.loader-brand{position:absolute;top:34px;left:40px}.loader-bottom{position:absolute;bottom:35px;left:40px;right:40px;display:flex;justify-content:space-between;font:14px monospace}.loader-line{position:absolute;left:0;bottom:0;width:100%;height:3px;background:#a7c9db;transform:scaleX(0);transform-origin:left}</style>
+  <script>
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    window.patchLoaderFallback = setTimeout(function () {
+      document.documentElement.classList.remove('preloading');
+      var loader = document.getElementById('loader');
+      if (loader) loader.remove();
+    }, 9000);
+  </script>
+  <link rel="stylesheet" href="styles.css?v=5">
+  <link rel="stylesheet" href="catalog.css?v=7">
+  <link rel="stylesheet" href="assets/vendor/lenis.css">
+  <link rel="stylesheet" href="motion.css?v=7">
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/shop-config.js" defer></script>
+  <script src="assets/shop.js" defer></script>
+  <script src="app.js?v=8" defer></script>
+  <script src="motion.js?v=7" defer></script>
+  <noscript><style>.preloading{overflow:auto}.loader{display:none}</style></noscript>
+</head>
+<body>
+  <div class="loader" id="loader" role="status" aria-label="Loading PATCH">
+    <span class="loader-brand" aria-label="PATCH"><svg class="brand-mark" viewBox="0 0 80 48" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z"/><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z" transform="translate(80 0) scale(-1 1)"/></svg></span>
+    <span class="loader-title" id="loader-title" aria-hidden="true">TIME FOR YOURSELF</span>
+    <div class="loader-bottom"><span>START WITH YOURSELF.</span><span><span id="loader-count">000</span> / 100</span></div>
+    <div class="loader-line" id="loader-line"></div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="header">
+    <a class="brand" href="#top" aria-label="PATCH — home">
+      <svg class="brand-mark" viewBox="0 0 80 48" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z"/><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z" transform="translate(80 0) scale(-1 1)"/></svg>
+    </a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#about">ABOUT</a>
+      <a href="#collection">EYE PATCHES</a>
+      <a href="#formula">INGREDIENTS</a>
+      <a href="#reviews">REVIEWS</a>
+      <a href="#questions">FAQ</a>
+    </nav>
+    <button class="cart-toggle" type="button" data-open-cart>BAG <span data-cart-count>0</span></button>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile navigation">
+      <a href="#about">ABOUT</a><a href="#collection">EYE PATCHES</a><a href="#formula">INGREDIENTS</a><a href="#reviews">REVIEWS</a><a href="#questions">FAQ</a>
+    </nav>
+    <p>A LITTLE TIME FOR YOURSELF.</p>
+  </div>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <h1 id="hero-title"><span class="title-line"><span>A FRESH</span></span><span class="title-line"><span>POINT OF VIEW</span></span></h1>
+      <div class="hero-copy">
+        <p>HYDROGEL EYE PATCHES<br>FOR YOUR UNDER-EYE SKIN</p>
+        <p>A LITTLE TIME FOR YOURSELF.<br>BEFORE THE DAY BEGINS.</p>
+      </div>
+      <div class="hero-bottom">
+        <a class="explore-link" href="#about">MEET PATCH<span class="scroll-mark" aria-hidden="true"><span></span></span></a>
+        <p>START WITH YOURSELF.</p>
+        <span class="hero-end">CARE AT YOUR OWN PACE</span>
+      </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+      <div class="manifesto page-padding">
+        <h2 class="reading-reveal" id="about-title">THE WORLD CAN WAIT.<br>FIRST, YOUR EYE PATCHES,<br>YOUR COFFEE. YOUR MOMENT.</h2>
+      </div>
+      <div class="campaign scene" data-header-dark>
+        <div class="scene-media"><img src="assets/catalog/campaign-white-wide.png" alt="Red-haired woman wearing green eye patches against a white background" width="1774" height="887" fetchpriority="high"></div>
+        <div class="campaign-content">
+          <h3>START<br>WITH YOU.</h3>
+          <p>YOUR SKIN.<br>YOUR CHOICE.</p>
+        </div>
+        <div class="scene-caption"><span>PATCH — CARE FOR YOURSELF</span></div>
+      </div>
+    </section>
+
+    <section class="collection" id="collection" aria-labelledby="collection-title">
+  <div class="section-heading page-padding"><h2 id="collection-title" data-reveal>FIND YOUR PAIR.</h2><p>FOUR PERSONALITIES.<br>YOUR KIND OF CARE.</p></div>
+  <div class="catalog-filter page-padding" role="group" aria-label="Filter eye patches"><button type="button" data-filter="all" aria-pressed="true">ALL PATCHES</button><button type="button" data-filter="aqua" aria-pressed="false">HYDRATION</button><button type="button" data-filter="glow" aria-pressed="false">GLOW</button><button type="button" data-filter="graphite" aria-pressed="false">FRESH LOOK</button><button type="button" data-filter="rose" aria-pressed="false">COMFORT</button></div>
+  <div class="catalog-grid page-padding"><article class="catalog-card" data-catalog-id="aqua">
+    <a class="catalog-image" href="product/aqua/" data-product-link="aqua" aria-label="AQUA eye patches: hydration"><img src="assets/catalog/aqua-restored.png" alt="Woman wearing green eye patches and holding a facial roller" width="1600" height="2400" loading="lazy"><span class="catalog-open" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 7v18M7 16h18"/></svg></span></a>
+    <div class="catalog-card-title"><a href="product/aqua/" data-product-link="aqua"><h3>AQUA</h3></a><span class="color-swatch" style="--swatch:#65bfc4" aria-label="GREEN HYDROGEL"></span></div>
+    <div class="catalog-card-meta"><span>HYDRATION</span><span>GREEN HYDROGEL</span></div>
+  <p class="catalog-price" data-catalog-price="aqua">290 ₽</p></article><article class="catalog-card" data-catalog-id="glow">
+    <a class="catalog-image" href="product/glow/" data-product-link="glow" aria-label="GLOW eye patches"><img src="assets/catalog/glow-restored.png" alt="Woman wearing gold eye patches" width="1600" height="2400" loading="lazy"><span class="catalog-open" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 7v18M7 16h18"/></svg></span></a>
+    <div class="catalog-card-title"><a href="product/glow/" data-product-link="glow"><h3>GLOW</h3></a><span class="color-swatch" style="--swatch:#d7b54e" aria-label="GOLD HYDROGEL"></span></div>
+    <div class="catalog-card-meta"><span>GLOW</span><span>GOLD HYDROGEL</span></div>
+  <p class="catalog-price" data-catalog-price="glow">310 ₽</p></article><article class="catalog-card" data-catalog-id="graphite">
+    <a class="catalog-image" href="product/graphite/" data-product-link="graphite" aria-label="GRAPHITE eye patches: fresh look"><img src="assets/catalog/graphite-original.png" alt="Woman wearing black hydrogel eye patches" width="1600" height="2400" loading="lazy"><span class="catalog-open" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 7v18M7 16h18"/></svg></span></a>
+    <div class="catalog-card-title"><a href="product/graphite/" data-product-link="graphite"><h3>GRAPHITE</h3></a><span class="color-swatch" style="--swatch:#424347" aria-label="BLACK HYDROGEL"></span></div>
+    <div class="catalog-card-meta"><span>FRESH LOOK</span><span>BLACK HYDROGEL</span></div>
+  <p class="catalog-price" data-catalog-price="graphite">390 ₽</p></article><article class="catalog-card" data-catalog-id="rose">
+    <a class="catalog-image" href="product/rose/" data-product-link="rose" aria-label="ROSE eye patches: comfort"><img src="assets/catalog/rose-restored.png" alt="Pink eye patches on skin" width="1600" height="2400" loading="lazy"><span class="catalog-open" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M16 7v18M7 16h18"/></svg></span></a>
+    <div class="catalog-card-title"><a href="product/rose/" data-product-link="rose"><h3>ROSE</h3></a><span class="color-swatch" style="--swatch:#db8d9d" aria-label="PINK HYDROGEL"></span></div>
+    <div class="catalog-card-meta"><span>COMFORT</span><span>PINK HYDROGEL</span></div>
+  <p class="catalog-price" data-catalog-price="rose">590 ₽</p></article></div>
+  <div class="collection-note page-padding"><span>YOUR CHOICE. YOUR PAIR.</span><a class="text-link" href="https://t.me/kiwnt1" target="_blank" rel="noopener noreferrer">ORDER ON TELEGRAM ↗</a></div>
+ </section>
+
+    <section class="formula page-padding" id="formula" aria-labelledby="formula-title">
+      <h2 class="statement kinetic-statement" id="formula-title"><span class="kinetic-line" data-from="0" data-to="1"><span>FAMILIAR</span></span><span class="kinetic-line" data-from="1" data-to="0"><span>INGREDIENTS.</span></span><span class="kinetic-line" data-from=".15" data-to=".7"><span>SIMPLE</span> <span>CARE.</span></span></h2>
+      <div class="formula-body">
+        <div class="formula-intro"><p class="normal-case">Your under-eye skin deserves attention. Get to know the ingredients commonly used in skincare.</p></div>
+        <div class="ingredient-selector"><div class="ingredient-tabs" role="tablist" aria-label="Ingredients"><button type="button" role="tab" id="tab-hyaluron" aria-selected="true" aria-controls="ingredient-panel" data-ingredient="hyaluron">HYALURONIC ACID<span class="plus-icon" aria-hidden="true"></span></button><button type="button" role="tab" id="tab-caffeine" aria-selected="false" aria-controls="ingredient-panel" tabindex="-1" data-ingredient="caffeine">CAFFEINE<span class="plus-icon" aria-hidden="true"></span></button><button type="button" role="tab" id="tab-panthenol" aria-selected="false" aria-controls="ingredient-panel" tabindex="-1" data-ingredient="panthenol">PANTHENOL<span class="plus-icon" aria-hidden="true"></span></button></div><div class="ingredient-panel" id="ingredient-panel" role="tabpanel" aria-labelledby="tab-hyaluron" tabindex="0"><p id="ingredient-description">Helps retain moisture in skincare formulas. Often used in eye patches to leave skin feeling hydrated.</p><span id="ingredient-effect">HYDRATION</span></div></div></div></section>
+
+    <section class="reviews page-padding" id="reviews" aria-labelledby="reviews-title">
+      <div class="reviews-top"><h2 id="reviews-title">YOUR WORDS.</h2></div>
+      <div class="review-stage" aria-live="polite" aria-atomic="true">
+        <blockquote id="review-quote">“BEEN BUYING THESE FOR SIX MONTHS — LOVE THEM!”</blockquote>
+        <p id="review-author" hidden></p>
+      </div>
+      <div class="reviews-bottom"><div class="review-controls"><button type="button" id="review-prev" aria-label="Previous review">PREVIOUS</button><span id="review-position">1 / 5</span><button type="button" id="review-next" aria-label="Next review">NEXT</button></div><a class="text-link" href="https://t.me/kiwnt1?text=I%20would%20like%20to%20leave%20a%20review%20of%20PATCH." target="_blank" rel="noopener noreferrer">LEAVE A REVIEW ↗</a></div>
+    </section>
+
+    <section class="questions page-padding" id="questions" aria-labelledby="questions-title">
+      <div class="questions-heading"><h2 id="questions-title">ANY<br>QUESTIONS?</h2><p>LET’S CLEAR THINGS UP.</p></div>
+      <div class="faq-list">
+        <details name="faq"><summary><span>When should I use eye patches?</span><span class="plus-icon" aria-hidden="true"></span></summary><div class="detail-content"><p>In the morning, before makeup or in the evening — whenever it fits your routine. Follow the product instructions for how often to use them.</p></div></details>
+        <details name="faq"><summary><span>How long should I leave them on?</span><span class="plus-icon" aria-hidden="true"></span></summary><div class="detail-content"><p>Follow the time stated on the packaging. Different formulas have different instructions. Do not leave patches on overnight unless the product instructions say you can.</p></div></details>
+        <details name="faq"><summary><span>Should I keep them in the fridge?</span><span class="plus-icon" aria-hidden="true"></span></summary><div class="detail-content"><p>Follow the storage instructions on the packaging. Some patches can be chilled before use for a cooling feel. Do not freeze them.</p></div></details>
+        <details name="faq"><summary><span>Can I reuse them?</span><span class="plus-icon" aria-hidden="true"></span></summary><div class="detail-content"><p>Single-use patches are intended for one application. Dispose of them afterwards. Do not put used patches back in the jar.</p></div></details>
+        <details name="faq"><summary><span>How do I order PATCH?</span><span class="plus-icon" aria-hidden="true"></span></summary><div class="detail-content"><p>Choose your patches, add them to your bag and continue to Telegram. A chat with @kiwnt1 opens with your order summary. Send the message to confirm availability, delivery and payment.</p><a class="text-link" href="#collection">EXPLORE THE COLLECTION</a></div></details>
+      </div>
+    </section>
+  <section class="product-page" id="product-page" hidden aria-labelledby="product-page-title"></section>
+  </main>
+
+  <footer class="site-footer page-padding">
+    <div class="footer-topline"><span>IT STARTS WITH YOU.</span><a href="#collection" class="text-link">FIND YOUR PAIR</a></div>
+    <a href="#collection" class="footer-statement" aria-label="Start with you — explore eye patches"><span>START</span><span>WITH YOU.</span><span class="footer-dot" aria-hidden="true"></span></a>
+    <div class="footer-bottom"><a class="footer-brand" href="#top" aria-label="PATCH — home"><svg class="brand-mark" viewBox="0 0 80 48" fill="currentColor" aria-hidden="true" focusable="false"><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z"/><path d="M5 13C8 3 22 2 31 9C36 13 37 19 33 23C28 28 22 23 18 24C12 25 10 35 5 32C0 29 1 22 5 13Z" transform="translate(80 0) scale(-1 1)"/></svg></a><button type="button" data-open-info>OUR STORY</button><a href="https://t.me/kiwnt1" target="_blank" rel="noopener noreferrer">TELEGRAM ↗</a><a href="#top">BACK TO TOP</a></div>
+    <p class="footer-year">2026</p>
+  </footer>
+
+  <dialog class="text-dialog" id="info-dialog" aria-labelledby="info-title"><button class="dialog-close" type="button" data-close-dialog aria-label="Close dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><h2 id="info-title">HELLO.<br>WE’RE PATCH.</h2><div class="normal-case"><p>PATCH is an under-eye skincare brand. Our idea starts with something simple: between the messages, meetings and plans, there should be a little room for you.</p><p>We love mornings with time to finish a coffee. Getting ready to a favourite song. Wearing eye patches at home while it rains outside. Small moments that make skincare a part of the day you look forward to.</p><p>PATCH has four personalities: calm Aqua, sunny Glow, expressive Graphite and gentle Rose. There is a pair for different moods, from quiet mornings to getting ready for the evening. Find the one that feels like today.</p><p>We love real faces: freckles, expressions and skin with its own texture. Skincare should leave room to be yourself. You decide how you look and how much time you make for you.</p><p>“Start with you” is the thought behind PATCH. Sometimes all it takes is choosing a song, putting your phone aside and opening your favourite eye patches.</p></div><button class="solid-button" type="button" data-brand-collection>FIND YOUR PATCHES</button></dialog>
+  
+<dialog class="cart-dialog text-dialog" id="cart-dialog" aria-labelledby="cart-title"><button class="dialog-close" type="button" data-close-dialog aria-label="Close shopping bag"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><h2 id="cart-title">BAG<span class="cart-title-count" data-cart-count>0</span></h2><div id="cart-items"></div><div class="cart-calculation" hidden>
+  <form id="promo-form" class="promo-form" novalidate>
+    <label for="promo-code">PROMO CODE</label>
+    <div class="promo-input-row"><input id="promo-code" name="promo" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" aria-describedby="promo-status"><button type="submit">APPLY</button></div>
+    <p id="promo-status" role="status" aria-live="polite"></p>
+    <button class="text-link" type="button" data-remove-promo hidden>REMOVE CODE</button>
+  </form>
+  <dl class="cart-totals" aria-live="polite" aria-atomic="true"><div><dt>Subtotal</dt><dd id="cart-subtotal"></dd></div><div id="cart-discount-row" hidden><dt>Discount <span id="cart-promo-name"></span></dt><dd id="cart-discount"></dd></div><div class="cart-total"><dt>Items total</dt><dd id="cart-total"></dd></div></dl>
+  <p class="cart-delivery-note">Shipping is confirmed separately on Telegram.</p>
+</div><p class="cart-note">Continue to @kiwnt1 with your items, promo code and total ready in a message. Send it to arrange shipping and payment.</p><div class="cart-actions"><a class="solid-button" data-cart-checkout href="https://t.me/kiwnt1" target="_blank" rel="noopener noreferrer" hidden>CONTINUE TO TELEGRAM ↗</a><button type="button" class="text-link" data-cart-continue>CONTINUE SHOPPING</button></div></dialog><p class="cart-announcement" id="cart-announcement" role="status" aria-live="polite"></p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "generation": false,
+  "license": "Pexels License: https://www.pexels.com/license/",
+  "usage": "Real photographs used as illustrative texture and application imagery for a demonstration collection. They do not depict verified ПАТЧ products or imply photographer/model endorsement.",
+  "photos": [
+    {"file":"aqua.jpg","photographer":"Sora Shimazaki","source":"https://www.pexels.com/photo/black-woman-with-eye-patches-against-blue-background-5938443/","role":"brand campaign"},
+    {"file":"bright.jpg","photographer":"Mike Murray","source":"https://www.pexels.com/photo/woman-with-under-eye-patches-6925508/","role":"aqua product texture"},
+    {"file":"gold-detail.jpg","photographer":"Anna Shvets","source":"https://www.pexels.com/photo/young-black-woman-during-cosmetic-procedure-for-eyes-3852195/","role":"glow product texture"},
+    {"file":"gold.jpg","photographer":"Monstera Production","source":"https://www.pexels.com/photo/close-up-photo-of-a-woman-applying-under-eye-patches-6977869/","role":"graphite product texture"},
+    {"file":"rose.jpg","photographer":"SHVETS production","source":"https://www.pexels.com/photo/woman-putting-on-red-cosmetic-pads-under-her-eyes-9774897/","role":"rose product texture"},
+    {"file":"calm.jpg","photographer":"Darina Belonogova","source":"https://www.pexels.com/photo/a-woman-applying-under-eye-patches-7520395/","role":"unused reference"}
+  ]
+}

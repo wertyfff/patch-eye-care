@@ -1,0 +1,44 @@
+/* Motion language matched to the supplied Jetton reference. */
+html.lenis,html.lenis body{height:auto}
+html.lenis{scroll-behavior:auto!important}
+html.lenis.lenis-stopped{overflow:hidden}
+#square-cursor{position:fixed;top:0;left:0;right:auto;bottom:auto;width:0;height:0;margin:0;padding:0;border:0;overflow:visible;background:transparent;pointer-events:none;z-index:2000;opacity:0;will-change:transform}
+#square-cursor::backdrop{display:none;pointer-events:none}
+#square-cursor.visible{opacity:1}
+.square-cursor-shape{position:absolute;left:-8px;top:-8px;width:16px;height:16px;border:2px solid #ff5500;background:#ff5500;border-radius:0;display:grid;place-items:center;transition:width .28s,height .28s,left .28s,top .28s,border-radius .28s,background-color .28s,border-color .28s,opacity .28s,scale .15s}
+#square-cursor.over-link .square-cursor-shape{left:-35px;top:-35px;width:70px;height:70px;border-radius:50%;background:#999;border-color:#999;opacity:.2}
+#square-cursor.over-photo .square-cursor-shape{left:-38px;top:-38px;width:76px;height:76px;border-radius:0;background:#ff5500;border-color:#ff5500;opacity:1}
+.square-cursor-shape::before,.square-cursor-shape::after{content:'';position:absolute;width:18px;height:1px;background:#101010;opacity:0;transition:opacity .2s}
+.square-cursor-shape::after{rotate:90deg}
+#square-cursor.over-photo .square-cursor-shape::before,#square-cursor.over-photo .square-cursor-shape::after{opacity:1}
+#square-cursor.pressed .square-cursor-shape{scale:.75}
+.is-ready .title-line>span{animation:none!important}
+.title-line>span{transform:none!important}
+.motion-word{display:inline-block;vertical-align:bottom;overflow:clip;padding-bottom:.08em;margin-bottom:-.08em;perspective:800px}
+.motion-word-inner{display:inline-block;transform-origin:50% 100%;will-change:transform}
+.motion-char{display:inline-block;transform-origin:50% 100%;will-change:transform,opacity}
+.motion-shuffle-word{display:inline-block;white-space:pre}
+.motion-ink-word{position:relative;display:inline-block;color:#888}
+.motion-ink-fill{position:absolute;inset:0;color:var(--ink);clip-path:inset(0 100% 0 0);will-change:clip-path}
+.motion-word .motion-char{vertical-align:baseline}
+.kinetic-statement{overflow:visible;perspective:900px}
+.kinetic-line{display:flex!important;justify-content:flex-start!important;padding-left:0!important;gap:.22em!important;overflow:visible;will-change:auto}
+.kinetic-line>span{display:inline-block;flex:none;will-change:transform}
+.kinetic-line .motion-word{overflow:visible;padding:0;margin:0}
+.campaign .scene-media{clip-path:none}
+.campaign .scene-media img{will-change:auto;object-position:65% top}
+@media(max-width:760px){.campaign .scene-media img{object-position:70% top}}
+.catalog-image{clip-path:none!important;will-change:auto}
+.catalog-image img{transform:none!important;transition:none!important;animation:none!important;will-change:auto}
+.catalog-open{transition:none}
+.motion-image-frame{overflow:hidden}
+.loader-ascii{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.loader-title,.loader-brand,.loader-bottom,.loader-line{z-index:1}
+.mobile-menu nav{perspective:900px;overflow:clip}
+.footer-statement{perspective:1000px}
+.collection{position:relative;z-index:2;background:var(--paper)}
+main>section[tabindex="-1"]:focus{outline:none}
+.footer-statement>span:not(.footer-dot){transform-origin:50% 100%}
+.footer-statement .motion-char{backface-visibility:hidden}
+@media(pointer:coarse),(hover:none){#square-cursor{display:none!important}}
+@media(prefers-reduced-motion:reduce){html:not(.motion-full) .motion-word-inner,html:not(.motion-full) .motion-char,html:not(.motion-full) .kinetic-line>span{will-change:auto}html:not(.motion-full) .motion-ink-fill{clip-path:inset(0)!important}html:not(.motion-full) .square-cursor-shape{transition:none}}

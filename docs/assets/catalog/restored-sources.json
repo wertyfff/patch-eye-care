@@ -1,0 +1,11 @@
+{
+  "source": "User-supplied photographs in chat, 2026-11-22",
+  "processing": "AI-assisted detail restoration; original composition requested, fine details may differ. Existing watermarks preserved.",
+  "assets": {
+    "glow-restored.png": "First supplied photo",
+    "aqua-restored.png": "Second supplied photo",
+    "rose-restored.png": "Third supplied photo"
+  },
+  "graphite": "graphite-original.png: exact fourth user-supplied image, extracted from session attachment without processing.",
+  "campaign-green-wide.png": "User-supplied redhead portrait: text removed, sides and upper area outpainted using imagegen; campaign dimensions retained."
+}

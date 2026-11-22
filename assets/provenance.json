@@ -1,0 +1,21 @@
+{
+  "tool": "OpenAI built-in Imagegen",
+  "purpose": "Demonstration imagery for the ПАТЧ brand concept. Packaging and collection names are conceptual.",
+  "assets": [
+    {
+      "file": "campaign.jpg",
+      "source": "../output/imagegen/campaign.png",
+      "prompt": "Use case: ads-marketing. Asset type: full-bleed editorial beauty campaign photograph for a premium Russian eye patch brand website. Create a high fashion beauty photograph, landscape 3:2 format. Extreme close portrait of an adult woman with natural brown eyes, brown hair slicked back, natural hydrated skin with real pores and freckles, two translucent glossy soft ice-blue crescent hydrogel eye patches correctly positioned immediately beneath both eyes. Frontal portrait looking straight into camera, calm self-possessed expression, face in center-right of composition, forehead to lips visible, no hand. Cold silver-blue seamless background and cool direct flash lighting, fine film texture, striking editorial confidence, luxury independent magazine aesthetic, not a generic skincare stock photo. Skin tones remain warm natural against icy blue, metallic wet light on translucent patches. Leave some pale blue negative space on left and upper portion. Must be beautiful photorealistic professional photography with sharp eye and patch details, exceptionally considered crop. NO lettering, NO logo, NO typography, NO watermark, no flowers, no extra objects."
+    },
+    {
+      "file": "product.jpg",
+      "source": "../output/imagegen/product.png",
+      "prompt": "Use case: product-mockup. Asset type: full-bleed eye patch brand collection campaign photograph. Create a beautiful premium editorial cosmetic still life, landscape 3:2 format, for Russian brand named ПАТЧ. Matte chrome-silver low round cosmetic jar with a silver lid hovering tilted slightly above, one ice-blue translucent hydrogel crescent eye patch partly draped over the rim and another patch on the reflective brushed aluminum surface, tiny condensation beads, tactile gel thickness. On the front of jar, small clean black condensed uppercase Cyrillic text exactly ПАТЧ and below tiny text EYE PATCHES. Minimal ice-blue and silver studio background, horizon barely visible, a single sharp directional daylight source from upper left casting long clean shadow towards lower right. Sculptural product composition, one large jar occupying center-right about 45% width, generous blue negative space on left. Sophisticated independent fashion editorial art direction, high clarity macro detail, physical photographic realism, cold pale blue palette with black lettering, no decorative props, no leaves, no plants, no flowers, no invented certifications, no watermarks, no added headline or graphic elements outside the packaging."
+    },
+    {
+      "file": "evening.jpg",
+      "source": "../output/imagegen/evening.png",
+      "prompt": "Use case: product-mockup. Asset type: full-bleed editorial cosmetics campaign photograph for eye patch brand ПАТЧ, landscape 3:2. Beautiful sculptural cosmetic still life in muted warm pink and soft red light. One matte pale-rose low round cosmetic jar with a rose metallic lid tilted and leaning beside it on a dark blush pink reflective tabletop, two realistic translucent pink crescent-shaped hydrogel under-eye patches softly folded in front of the jar with wet shine and tiny bubbles, subtle condensation. The jar is on the right half, photographed from a low three-quarter angle. Label on front only clean black condensed Cyrillic text exactly ПАТЧ and small EYE PATCHES. Soft directional evening sunshine, deep rose shadows falling to right, luminous gel, analog fashion magazine photography, tactile real materials. Spacious empty soft pink background in the upper left, no flowers, no leaves, no hands, no graphic layout, no outer headline, no watermark. Strong sophisticated art direction, restrained premium mood, physical photographic realism."
+    }
+  ]
+}
